@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MindBalance | Student Wellbeing</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #26352c;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(242, 248, 243, 0.58),
+                    rgba(242, 248, 243, 0.58)
+                ),
+                url("background.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 90%;
+            max-width: 1100px;
+
+            margin: 18px auto 0;
+
+            padding: 13px 22px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(255, 255, 255, 0.82);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255, 255, 255, 0.85);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 30px rgba(53, 107, 75, 0.08);
+        }
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            color: #315c42;
+        }
+
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 12px;
+
+            background: #dcefe2;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+
+        .nav-links span {
+            font-size: 13px;
+            color: #607168;
+            cursor: pointer;
+        }
+
+
+        .nav-links span:hover {
+            color: #356b4b;
+        }
+
+
+        .nav-badge {
+            background: #e0f1e5;
+
+            color: #427356;
+
+            padding: 9px 15px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            max-width: 950px;
+
+            margin: 48px auto 32px;
+
+            padding: 0 25px;
+
+            text-align: center;
+        }
+
+
+        .hero-label {
+            font-size: 12px;
+
+            letter-spacing: 5px;
+
+            color: #668574;
+
+            font-weight: bold;
+
+            margin-bottom: 16px;
+        }
+
+
+        .hero h1 {
+            font-size: 43px;
+
+            line-height: 1.2;
+
+            color: #243d2e;
+
+            margin-bottom: 14px;
+        }
+
+
+        .hero h1 span {
+            color: #3e7654;
+        }
+
+
+        .hero-description {
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #687970;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        .hero-pill {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 20px;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            background: rgba(228, 243, 232, 0.85);
+
+            color: #4b765b;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            width: 90%;
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding-bottom: 60px;
+        }
+
+
+        /* =========================
+           GLASS CARDS
+        ========================= */
+
+        .card {
+            background: rgba(255, 255, 255, 0.88);
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            border: 1px solid rgba(255, 255, 255, 0.85);
+
+            border-radius: 22px;
+
+            padding: 28px;
+
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 12px 35px rgba(45, 91, 63, 0.09);
+        }
+
+
+        .card-header {
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            margin-bottom: 24px;
+        }
+
+
+        .card-icon {
+            width: 43px;
+            height: 43px;
+
+            border-radius: 13px;
+
+            background: #dff2e4;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 20px;
+
+            flex-shrink: 0;
+        }
+
+
+        .card-header h2 {
+            font-size: 20px;
+
+            color: #304b39;
+
+            margin-bottom: 4px;
+        }
+
+
+        .card-header p {
+            color: #7b8a82;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           FORM GRID
+        ========================= */
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .field label {
+            display: block;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            color: #526259;
+
+            margin-bottom: 7px;
+        }
+
+
+        input,
+        select {
+            width: 100%;
+
+            padding: 12px 13px;
+
+            border: 1px solid #d8e3db;
+
+            border-radius: 10px;
+
+            background: rgba(251, 253, 251, 0.9);
+
+            color: #34463b;
+
+            font-size: 13px;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+
+        input::placeholder {
+            color: #a0aaa4;
+        }
+
+
+        input:focus,
+        select:focus {
+            border-color: #78a889;
+
+            box-shadow:
+                0 0 0 3px rgba(126, 174, 141, 0.15);
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .button-container {
+            text-align: center;
+
+            margin-top: 30px;
+        }
+
+
+        .assess-button {
+            border: none;
+
+            background: linear-gradient(
+                135deg,
+                #57916b,
+                #3d7554
+            );
+
+            color: white;
+
+            padding: 15px 48px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px rgba(62, 118, 84, 0.22);
+
+            transition: all 0.25s ease;
+        }
+
+
+        .assess-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 25px rgba(62, 118, 84, 0.30);
+        }
+
+
+        .assess-button:active {
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           PRIVACY
+        ========================= */
+
+        .privacy {
+            text-align: center;
+
+            margin-top: 15px;
+
+            color: #7c8982;
+
+            font-size: 11px;
+        }
+
+
+        .privacy span {
+            margin-right: 5px;
+        }
+        /* =========================
+   RESULT CARD
+========================= */
+
+.result-card {
+    display: none;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 22px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 35px rgba(45, 91, 63, 0.10);
+}
+
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 25px;
+}
+
+.result-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+    background: #dff2e4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.result-header h2 {
+    color: #304b39;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.result-header p {
+    color: #7b8a82;
+    font-size: 12px;
+}
+
+.risk-result {
+    text-align: center;
+    padding: 25px;
+    margin-bottom: 22px;
+    background: #f5faf6;
+    border: 1px solid #e0ebe2;
+    border-radius: 18px;
+}
+
+.risk-label {
+    display: block;
+    color: #7b8a82;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+#riskLevel {
+    color: #3d7554;
+    font-size: 36px;
+    margin: 0;
+}
+
+.probability-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.probability-box {
+    text-align: center;
+    padding: 18px;
+    background: #f8fbf9;
+    border: 1px solid #e1ebe3;
+    border-radius: 15px;
+}
+
+.probability-box span {
+    display: block;
+    color: #718078;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.probability-box strong {
+    color: #315c42;
+    font-size: 22px;
+}
+
+.result-note {
+    text-align: center;
+    color: #7b8a82;
+    font-size: 11px;
+    line-height: 1.6;
+}
+        /* =========================
+          RECOMMENDATIONS
+        ========================= */
+
+.recommendation-card {
+    display: none;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 22px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 35px rgba(45, 91, 63, 0.10);
+}
+
+.recommendation-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 20px;
+}
+
+.recommendation-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+    background: #dff2e4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.recommendation-header h2 {
+    color: #304b39;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.recommendation-header p {
+    color: #7b8a82;
+    font-size: 12px;
+}
+
+.recommendation-item {
+    background: #f7faf8;
+    border: 1px solid #e1ebe3;
+    border-radius: 14px;
+    padding: 15px 18px;
+    margin-bottom: 10px;
+    color: #526259;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.recommendation-item::before {
+    content: "✓";
+    color: #4d8962;
+    font-weight: bold;
+    margin-right: 10px;
+}       
+/* =========================
+   MONITORING DASHBOARD
+========================= */
+
+.monitoring-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 22px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 35px rgba(45, 91, 63, 0.10);
+}
+
+.monitoring-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 25px;
+}
+
+.monitoring-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+    background: #dff2e4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.monitoring-header h2 {
+    color: #304b39;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.monitoring-header p {
+    color: #7b8a82;
+    font-size: 12px;
+}
+
+.monitoring-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.monitoring-box {
+    text-align: center;
+    padding: 20px 15px;
+    background: #f8fbf9;
+    border: 1px solid #e1ebe3;
+    border-radius: 16px;
+}
+
+.monitoring-box span {
+    display: block;
+    color: #718078;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.monitoring-box strong {
+    color: #315c42;
+    font-size: 25px;
+}
+.retraining-status {
+    margin-top: 20px;
+    padding: 18px 20px;
+    background: #f5faf6;
+    border: 1px solid #e1ebe3;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.retraining-status span {
+    color: #718078;
+    font-size: 12px;
+}
+
+.retraining-status strong {
+    color: #3d7554;
+    font-size: 13px;
+}
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            text-align: center;
+
+            color: #718078;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            padding-bottom: 25px;
+        }
+
+
+        .footer-line {
+            width: 35px;
+
+            height: 2px;
+
+            background: #639174;
+
+            margin: 12px auto 0;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                width: 94%;
+
+                padding: 12px 15px;
+            }
+
+
+            .nav-links span {
+                display: none;
+            }
+
+
+            .nav-badge {
+                font-size: 10px;
+
+                padding: 8px 10px;
+            }
+
+
+            .hero {
+                margin-top: 35px;
+            }
+
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .card {
+                padding: 21px;
+            }
+
+
+            .main {
+                width: 94%;
+            }
+
+
+            .assess-button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🌿
+        </div>
+
+        MindBalance
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <span>Home</span>
+        <span>About</span>
+        <span>Resources</span>
+        <span>Contact</span>
+
+        <div class="nav-badge">
+            🌱 Student Wellbeing
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        STUDENT WELLBEING
+    </div>
+
+
+    <h1>
+        Understand Your <span>Wellbeing</span>
+    </h1>
+
+
+    <p class="hero-description">
+
+        Take a moment to reflect on your daily habits,
+        academic pressure and wellbeing.
+        Our AI system provides an early indication of
+        burnout risk and personalized guidance.
+
+    </p>
+
+
+    <div class="hero-pill">
+
+        🌿
+        Small steps. A healthier you.
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MAIN FORM
+========================= -->
+
+<main class="main">
+
+
+    <!-- ABOUT YOU -->
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <div class="card-icon">
+                👤
+            </div>
+
+            <div>
+
+                <h2>
+                    About You
+                </h2>
+
+                <p>
+                    Basic information about your academic background
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <div class="field">
+
+                <label>
+                    Age
+                </label>
+
+                <input
+                    type="number"
+                    id="age"
+                    min="15"
+                    max="100"
+                    placeholder="Enter your age"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Gender
+                </label>
+
+                <select id="gender">
+
+                    <option value="">
+                        Select gender
+                    </option>
+
+                    <option>
+                        Female
+                    </option>
+
+                    <option>
+                        Male
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Course
+                </label>
+
+                <select id="course">
+
+                    <option value="">
+                        Select course
+                    </option>
+
+                    <option>
+                        BBA
+                    </option>
+
+                    <option>
+                        BCA
+                    </option>
+
+                    <option>
+                        BSc
+                    </option>
+
+                    <option>
+                        BTech
+                    </option>
+
+                    <option>
+                        MBA
+                    </option>
+
+                    <option>
+                        MCA
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Academic Year
+                </label>
+
+                <select id="year">
+
+                    <option value="">
+                        Select year
+                    </option>
+
+                    <option>
+                        1st
+                    </option>
+
+                    <option>
+                        2nd
+                    </option>
+
+                    <option>
+                        3rd
+                    </option>
+
+                    <option>
+                        4th
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- DAILY ROUTINE -->
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <div class="card-icon">
+                ☀️
+            </div>
+
+            <div>
+
+                <h2>
+                    Daily Routine
+                </h2>
+
+                <p>
+                    Tell us about your everyday habits
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <div class="field">
+
+                <label>
+                    Daily Study Hours
+                </label>
+
+                <input
+                    type="number"
+                    id="daily_study_hours"
+                    step="0.1"
+                    min="0"
+                    placeholder="e.g. 5"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Daily Sleep Hours
+                </label>
+
+                <input
+                    type="number"
+                    id="daily_sleep_hours"
+                    step="0.1"
+                    min="0"
+                    placeholder="e.g. 7"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Screen Time Hours
+                </label>
+
+                <input
+                    type="number"
+                    id="screen_time_hours"
+                    step="0.1"
+                    min="0"
+                    placeholder="e.g. 6"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Physical Activity Hours
+                </label>
+
+                <input
+                    type="number"
+                    id="physical_activity_hours"
+                    step="0.1"
+                    min="0"
+                    placeholder="e.g. 1"
+                >
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- WELLBEING -->
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <div class="card-icon">
+                🧠
+            </div>
+
+            <div>
+
+                <h2>
+                    Wellbeing Check-in
+                </h2>
+
+                <p>
+                    Rate how you have been feeling recently
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <div class="field">
+
+                <label>
+                    Stress Level
+                </label>
+
+                <select id="stress_level">
+
+                    <option value="">
+                        Select stress level
+                    </option>
+
+                    <option>
+                        Low
+                    </option>
+
+                    <option>
+                        Medium
+                    </option>
+
+                    <option>
+                        High
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Sleep Quality
+                </label>
+
+                <select id="sleep_quality">
+
+                    <option value="">
+                        Select sleep quality
+                    </option>
+
+                    <option>
+                        Good
+                    </option>
+
+                    <option>
+                        Average
+                    </option>
+
+                    <option>
+                        Poor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Anxiety Score (1–10)
+                </label>
+
+                <input
+                    type="number"
+                    id="anxiety_score"
+                    min="1"
+                    max="10"
+                    placeholder="1–10"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Depression Score (1–10)
+                </label>
+
+                <input
+                    type="number"
+                    id="depression_score"
+                    min="1"
+                    max="10"
+                    placeholder="1–10"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Academic Pressure (1–10)
+                </label>
+
+                <input
+                    type="number"
+                    id="academic_pressure_score"
+                    min="1"
+                    max="10"
+                    placeholder="1–10"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Financial Stress (1–10)
+                </label>
+
+                <input
+                    type="number"
+                    id="financial_stress_score"
+                    min="1"
+                    max="10"
+                    placeholder="1–10"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Social Support (1–10)
+                </label>
+
+                <input
+                    type="number"
+                    id="social_support_score"
+                    min="1"
+                    max="10"
+                    placeholder="1–10"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Internet Quality
+                </label>
+
+                <select id="internet_quality">
+
+                    <option value="">
+                        Select quality
+                    </option>
+
+                    <option>
+                        Good
+                    </option>
+
+                    <option>
+                        Average
+                    </option>
+
+                    <option>
+                        Poor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Attendance Percentage
+                </label>
+
+                <input
+                    type="number"
+                    id="attendance_percentage"
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    placeholder="e.g. 85"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    CGPA
+                </label>
+
+                <input
+                    type="number"
+                    id="cgpa"
+                    min="0"
+                    max="10"
+                    step="0.01"
+                    placeholder="e.g. 8.5"
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <div class="button-container">
+
+          <button
+    type="button"
+    class="assess-button"
+    id="assessButton"
+>
+
+                ✦ &nbsp; Assess My Wellbeing &nbsp; →
+
+            </button>
+
+        </div>
+
+
+        <div class="privacy">
+
+            🔒
+            Your information is used only for this assessment.
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+     RESULT SECTION
+     ========================= -->
+
+<section class="result-card" id="resultCard">
+
+    <div class="result-header">
+        <div class="result-icon">🌿</div>
+
+        <div>
+            <h2>Your Wellbeing Result</h2>
+            <p>Your assessment has been completed.</p>
+        </div>
+    </div>
+
+    <div class="risk-result">
+
+        <span class="risk-label">
+            CURRENT RISK LEVEL
+        </span>
+
+        <h1 id="riskLevel">
+            —
+        </h1>
+
+    </div>
+
+
+    <div class="probability-grid">
+
+        <div class="probability-box">
+            <span>High</span>
+            <strong id="highProbability">0%</strong>
+        </div>
+
+        <div class="probability-box">
+            <span>Medium</span>
+            <strong id="mediumProbability">0%</strong>
+        </div>
+
+        <div class="probability-box">
+            <span>Low</span>
+            <strong id="lowProbability">0%</strong>
+        </div>
+
+    </div>
+
+
+    <p class="result-note">
+        This result is an early risk indication based on the
+        information provided and is not a medical diagnosis.
+    </p>
+
+</section>
+    <!-- =========================
+     RECOMMENDATIONS
+     ========================= -->
+
+<section class="recommendation-card" id="recommendationCard">
+
+    <div class="recommendation-header">
+
+        <div class="recommendation-icon">🌱</div>
+
+        <div>
+            <h2>Personalized Recommendations</h2>
+            <p>Small steps that may support your wellbeing.</p>
+        </div>
+
+    </div>
+
+    <div id="recommendationList">
+        <!-- Recommendations will appear here -->
+    </div>
+
+</section>
+    <!-- =========================
+     MONITORING DASHBOARD
+========================= -->
+
+<section class="monitoring-card" id="monitoringCard">
+
+    <div class="monitoring-header">
+
+        <div class="monitoring-icon">📊</div>
+
+        <div>
+            <h2>System Monitoring</h2>
+            <p>Overview of recorded wellbeing assessments.</p>
+        </div>
+
+    </div>
+
+
+    <div class="monitoring-grid">
+
+        <div class="monitoring-box">
+            <span>Total Assessments</span>
+            <strong id="totalAssessments">0</strong>
+        </div>
+
+        <div class="monitoring-box">
+            <span>High Risk</span>
+            <strong id="highCount">0</strong>
+        </div>
+
+        <div class="monitoring-box">
+            <span>Medium Risk</span>
+            <strong id="mediumCount">0</strong>
+        </div>
+
+        <div class="monitoring-box">
+            <span>Low Risk</span>
+            <strong id="lowCount">0</strong>
+        </div>
+
+    </div>
+    <div class="retraining-status">
+    <span>Model Retraining Status</span>
+    <strong id="retrainingStatus">Checking...</strong>
+</div>
+
+</section>
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        HEALTHY STUDENTS &nbsp; | &nbsp; HAPPIER COMMUNITIES
+
+        <div class="footer-line"></div>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+async function assessBurnout() {
+
+    const studentData = {
+
+        age: Number(document.getElementById("age").value),
+
+        gender: document.getElementById("gender").value,
+
+        course: document.getElementById("course").value,
+
+        year: document.getElementById("year").value,
+
+        daily_study_hours:
+            Number(document.getElementById("daily_study_hours").value),
+
+        daily_sleep_hours:
+            Number(document.getElementById("daily_sleep_hours").value),
+
+        screen_time_hours:
+            Number(document.getElementById("screen_time_hours").value),
+
+        stress_level:
+            document.getElementById("stress_level").value,
+
+        anxiety_score:
+            Number(document.getElementById("anxiety_score").value),
+
+        depression_score:
+            Number(document.getElementById("depression_score").value),
+
+        academic_pressure_score:
+            Number(document.getElementById("academic_pressure_score").value),
+
+        financial_stress_score:
+            Number(document.getElementById("financial_stress_score").value),
+
+        social_support_score:
+            Number(document.getElementById("social_support_score").value),
+
+        physical_activity_hours:
+            Number(document.getElementById("physical_activity_hours").value),
+
+        sleep_quality:
+            document.getElementById("sleep_quality").value,
+
+        attendance_percentage:
+            Number(document.getElementById("attendance_percentage").value),
+
+        cgpa:
+            Number(document.getElementById("cgpa").value),
+
+        internet_quality:
+            document.getElementById("internet_quality").value
+    };
+
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:8000/predict",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(studentData)
+            }
+        );
+
+
+        if (!response.ok) {
+            throw new Error("Server returned an error: " + response.status);
+        }
+
+
+        const result = await response.json();
+
+        console.log("Prediction Result:", result);
+
+
+        // =========================
+        // SHOW RESULT
+        // =========================
+
+        document.getElementById("resultCard").style.display = "block";
+
+        document.getElementById("riskLevel").textContent =
+            result.risk_level;
+
+        document.getElementById("highProbability").textContent =
+            result.probabilities.High + "%";
+
+        document.getElementById("mediumProbability").textContent =
+            result.probabilities.Medium + "%";
+
+        document.getElementById("lowProbability").textContent =
+            result.probabilities.Low + "%";
+
+
+        // =========================
+        // RECOMMENDATIONS
+        // =========================
+
+        let recommendations = [];
+
+
+        const studyHours =
+            studentData.daily_study_hours;
+
+        const sleepHours =
+            studentData.daily_sleep_hours;
+
+        const screenTime =
+            studentData.screen_time_hours;
+
+        const anxiety =
+            studentData.anxiety_score;
+
+        const depression =
+            studentData.depression_score;
+
+        const academicPressure =
+            studentData.academic_pressure_score;
+
+        const financialStress =
+            studentData.financial_stress_score;
+
+        const socialSupport =
+            studentData.social_support_score;
+
+        const physicalActivity =
+            studentData.physical_activity_hours;
+
+
+        if (studyHours > 8) {
+
+            recommendations.push(
+                "Consider taking regular breaks and balancing your study workload."
+            );
+
+        }
+
+
+        if (sleepHours < 6) {
+
+            recommendations.push(
+                "Try to maintain a consistent sleep routine and aim for adequate sleep."
+            );
+
+        }
+
+
+        if (screenTime > 8) {
+
+            recommendations.push(
+                "Consider reducing recreational screen time and taking regular screen breaks."
+            );
+
+        }
+
+
+        if (anxiety >= 7) {
+
+            recommendations.push(
+                "Consider using relaxation or stress-management techniques and seeking support if needed."
+            );
+
+        }
+
+
+        if (depression >= 7) {
+
+            recommendations.push(
+                "Consider talking with a trusted person or qualified mental-health professional for additional support."
+            );
+
+        }
+
+
+        if (academicPressure >= 7) {
+
+            recommendations.push(
+                "Consider discussing academic workload or deadlines with an appropriate academic advisor."
+            );
+
+        }
+
+
+        if (financialStress >= 7) {
+
+            recommendations.push(
+                "Consider exploring available student financial-aid or support resources."
+            );
+
+        }
+
+
+        if (socialSupport <= 3) {
+
+            recommendations.push(
+                "Consider connecting with supportive friends, peers, mentors, or campus support services."
+            );
+
+        }
+
+
+        if (physicalActivity < 0.5) {
+
+            recommendations.push(
+                "Consider incorporating some regular physical activity into your routine."
+            );
+
+        }
+
+
+        // =========================
+        // DEFAULT RECOMMENDATION
+        // =========================
+
+        if (recommendations.length === 0) {
+
+            recommendations.push(
+                "Continue maintaining a balanced routine and monitor your wellbeing regularly."
+            );
+
+        }
+
+
+        // =========================
+        // DISPLAY RECOMMENDATIONS
+        // =========================
+
+        const recommendationList =
+            document.getElementById("recommendationList");
+
+        recommendationList.innerHTML = "";
+
+
+        recommendations.forEach(function(recommendation) {
+
+            const item =
+                document.createElement("div");
+
+            item.className =
+                "recommendation-item";
+
+            item.textContent =
+                recommendation;
+
+            recommendationList.appendChild(item);
+
+        });
+
+
+        // Show recommendation card
+
+        document.getElementById("recommendationCard").style.display =
+            "block";
+
+
+        // Scroll to result
+
+        document.getElementById("resultCard").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+
+    catch (error) {
+
+        console.error("Error:", error);
+
+        alert(
+            "Unable to connect to the prediction server."
+        );
+
+    }
+
+}document.getElementById("assessButton").addEventListener(
+    "click",
+    assessBurnout,
+    { once: false }
+);
+// =========================
+// MONITORING DASHBOARD
+// =========================
+
+async function loadMonitoring() {
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:8000/monitoring"
+        );
+
+        const data = await response.json();
+
+        document.getElementById("totalAssessments").textContent =
+            data.total_assessments;
+
+        document.getElementById("highCount").textContent =
+            data.risk_counts.High;
+
+        document.getElementById("mediumCount").textContent =
+            data.risk_counts.Medium;
+
+        document.getElementById("lowCount").textContent =
+            data.risk_counts.Low;
+
+
+        const retrainingResponse = await fetch(
+            "http://127.0.0.1:8000/retraining-status"
+        );
+
+        const retrainingData =
+            await retrainingResponse.json();
+
+       document.getElementById("retrainingStatus").textContent =
+    retrainingData.retraining_required
+        ? `Retraining Required — ${retrainingData.assessment_count} / ${retrainingData.retraining_threshold}`
+        : `${retrainingData.assessment_count} / ${retrainingData.retraining_threshold} — Retraining Not Required`;
+    } catch (error) {
+
+        console.error(
+            "Monitoring data could not be loaded:",
+            error
+        );
+
+    }
+}
+
+
+// Load monitoring automatically when the page is ready
+window.addEventListener("DOMContentLoaded", () => {
+    loadMonitoring();
+});
+
+</script>
+
+
+</body>
+
+</html>
