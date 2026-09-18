@@ -60,26 +60,30 @@ def predict(student: StudentData):
     prediction = model.predict(processed_data)[0]
 
     probabilities = model.predict_proba(processed_data)[0]
-
     probability_dict = {
         class_name: round(float(probability) * 100, 2)
         for class_name, probability
         in zip(model.classes_, probabilities)
     }
-    from backend.database import save_assessment
 
-    save_assessment(
-    student_dict,
-    prediction,
-    probability_dict
-)
+    import os
+
+    if os.getenv("VERCEL") != "1":
+        from backend.database import save_assessment
+
+        save_assessment(
+            student_dict,
+            prediction,
+            probability_dict
+        )
+
     return {
         "risk_level": prediction,
         "probabilities": probability_dict
     }
+
 @app.get("/monitoring")
 def monitoring():
-
     from backend.monitoring import get_assessment_summary
 
     return get_assessment_summary()
