@@ -1728,6 +1728,12 @@
 
 <script>
 
+const API_BASE_URL =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+        ? "http://127.0.0.1:8000"
+        : "";
+
 async function assessBurnout() {
 
     const studentData = {
@@ -1787,7 +1793,7 @@ async function assessBurnout() {
     try {
 
             const response = await fetch(
-                "http://127.0.0.1:8000/predict",
+                API_BASE_URL + "/predict",
                 {
                     method: "POST",
 
@@ -2038,7 +2044,7 @@ async function loadMonitoring() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:8000/monitoring"
+            API_BASE_URL + "/monitoring"
         );
 
         const data = await response.json();
@@ -2057,7 +2063,7 @@ async function loadMonitoring() {
 
 
         const retrainingResponse = await fetch(
-            "http://127.0.0.1:8000/retraining-status"
+            API_BASE_URL + "/retraining-status"
         );
 
         const retrainingData =

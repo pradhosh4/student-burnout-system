@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from backend.database import create_database
 from fastapi.middleware.cors import CORSMiddleware
 import joblib
@@ -44,9 +46,7 @@ class StudentData(BaseModel):
 
 @app.get("/")
 def home():
-    return {
-        "message": "Student Burnout Prediction API is running!"
-    }
+    return FileResponse("frontend/index.html")
 @app.post("/predict")
 def predict(student: StudentData):
     student_dict = student.model_dump()
@@ -113,3 +113,9 @@ def retraining_status():
         "retraining_status": "not_required",
         "message": "Not enough new assessment data for retraining."
     }
+
+app.mount(
+    "/",
+    StaticFiles(directory="frontend", html=True),
+    name="frontend"
+)
