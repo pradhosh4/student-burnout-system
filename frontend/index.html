@@ -31,6 +31,44 @@
             background-position: center;
             background-attachment: fixed;
         }
+        /* =========================
+   RESOURCES
+========================= */
+
+.resources-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 22px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 35px rgba(45, 91, 63, 0.10);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.resource-item {
+    background: rgba(99, 145, 116, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.resource-item h3 {
+    margin-bottom: 8px;
+    font-size: 17px;
+}
+
+.resource-item p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 14px;
+}
 
 
         /* =========================
@@ -38,6 +76,9 @@
         ========================= */
 
         .navbar {
+            position: sticky;
+            top: 15px;
+            z-index: 1000;
             width: 90%;
             max-width: 1100px;
 
@@ -98,16 +139,16 @@
         }
 
 
-        .nav-links span {
-            font-size: 13px;
-            color: #607168;
-            cursor: pointer;
-        }
+       .nav-links a {
+    font-size: 13px;
+    color: #607168;
+    cursor: pointer;
+    text-decoration: none;
+}
 
-
-        .nav-links span:hover {
-            color: #356b4b;
-        }
+.nav-links a:hover {
+    color: #356b4b;
+}
 
 
         .nav-badge {
@@ -491,6 +532,17 @@
     font-size: 36px;
     margin: 0;
 }
+#riskLevel.risk-high {
+    color: #c94b4b;
+}
+
+#riskLevel.risk-medium {
+    color: #c58a2a;
+}
+
+#riskLevel.risk-low {
+    color: #3d8b5f;
+}
 
 .probability-grid {
     display: grid;
@@ -505,6 +557,17 @@
     background: #f8fbf9;
     border: 1px solid #e1ebe3;
     border-radius: 15px;
+}
+.probability-box:nth-child(1) {
+    border-top: 3px solid #c94b4b;
+}
+
+.probability-box:nth-child(2) {
+    border-top: 3px solid #c58a2a;
+}
+
+.probability-box:nth-child(3) {
+    border-top: 3px solid #3d8b5f;
 }
 
 .probability-box span {
@@ -574,19 +637,33 @@
     background: #f7faf8;
     border: 1px solid #e1ebe3;
     border-radius: 14px;
-    padding: 15px 18px;
+    padding: 16px 18px;
     margin-bottom: 10px;
     color: #526259;
     font-size: 13px;
     line-height: 1.6;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recommendation-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(45, 91, 63, 0.08);
 }
 
 .recommendation-item::before {
     content: "✓";
-    color: #4d8962;
-    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
     margin-right: 10px;
-}       
+    border-radius: 50%;
+    background: #dff2e4;
+    color: #3d8b5f;
+    font-weight: bold;
+    font-size: 12px;
+}      
 /* =========================
    MONITORING DASHBOARD
 ========================= */
@@ -643,7 +720,30 @@
     background: #f8fbf9;
     border: 1px solid #e1ebe3;
     border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.monitoring-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(45, 91, 63, 0.08);
+}
+
+.monitoring-box:nth-child(1) {
+    border-top: 3px solid #639174;
+}
+
+.monitoring-box:nth-child(2) {
+    border-top: 3px solid #c94b4b;
+}
+
+.monitoring-box:nth-child(3) {
+    border-top: 3px solid #c58a2a;
+}
+
+.monitoring-box:nth-child(4) {
+    border-top: 3px solid #3d8b5f;
+}
+
 
 .monitoring-box span {
     display: block;
@@ -676,23 +776,45 @@
     color: #3d7554;
     font-size: 13px;
 }
+.retraining-status strong.retraining-required {
+    color: #c94b4b;
+}
+
+.retraining-status strong.retraining-not-required {
+    color: #3d8b5f;
+}
 
         /* =========================
            FOOTER
         ========================= */
 
         .footer {
-            text-align: center;
+    text-align: center;
+    color: #718078;
+    padding: 28px 20px 25px;
+}
 
-            color: #718078;
+.footer h3 {
+    color: #304b39;
+    font-size: 18px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
 
-            font-size: 11px;
+.footer p {
+    max-width: 750px;
+    margin: 6px auto;
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 0;
+}
 
-            letter-spacing: 3px;
-
-            padding-bottom: 25px;
-        }
-
+.footer-bottom {
+    margin-top: 15px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #718078;
+}
 
         .footer-line {
             width: 35px;
@@ -730,57 +852,67 @@
 
             .navbar {
                 width: 94%;
-
                 padding: 12px 15px;
             }
 
-
-            .nav-links span {
+            .nav-links a:not(.nav-badge) {
                 display: none;
             }
 
-
             .nav-badge {
                 font-size: 10px;
-
                 padding: 8px 10px;
             }
-
 
             .hero {
                 margin-top: 35px;
             }
 
-
             .hero h1 {
                 font-size: 30px;
             }
-
 
             .hero-description {
                 font-size: 13px;
             }
 
-
             .form-grid {
                 grid-template-columns: 1fr;
             }
-
 
             .card {
                 padding: 21px;
             }
 
-
             .main {
                 width: 94%;
             }
-
 
             .assess-button {
                 width: 100%;
             }
 
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        /* =========================
+           SMOOTH NAVIGATION
+        ========================= */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #home,
+        #about,
+        #resources,
+        #assessment,
+        #contact {
+            scroll-margin-top: 90px;
         }
 
     </style>
@@ -794,42 +926,36 @@
 <!-- =========================
      NAVIGATION
 ========================= -->
-
 <nav class="navbar">
 
     <div class="logo">
-
         <div class="logo-icon">
             🌿
         </div>
-
         MindBalance
-
     </div>
-
 
     <div class="nav-links">
 
-        <span>Home</span>
-        <span>About</span>
-        <span>Resources</span>
-        <span>Contact</span>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
 
-        <div class="nav-badge">
+        <a href="#assessment" class="nav-badge">
             🌱 Student Wellbeing
-        </div>
+        </a>
 
     </div>
 
 </nav>
 
 
-
 <!-- =========================
      HERO
 ========================= -->
 
-<section class="hero">
+ <section class="hero" id="home">
 
     <div class="hero-label">
         STUDENT WELLBEING
@@ -866,12 +992,12 @@
      MAIN FORM
 ========================= -->
 
-<main class="main">
+<main class="main" id="assessment">
 
 
     <!-- ABOUT YOU -->
 
-    <section class="card">
+    <section class="card" id="about">
 
         <div class="card-header">
 
@@ -1513,15 +1639,83 @@
 </div>
 
 </section>
-    <!-- FOOTER -->
 
-    <div class="footer">
+<!-- =========================
+     RESOURCES
+========================= -->
 
-        HEALTHY STUDENTS &nbsp; | &nbsp; HAPPIER COMMUNITIES
+<section class="resources-card" id="resources">
 
-        <div class="footer-line"></div>
+    <div class="recommendation-header">
+        <div class="recommendation-icon">📚</div>
+
+        <div>
+            <h2>Wellbeing Resources</h2>
+            <p>Simple resources to support your daily wellbeing.</p>
+        </div>
+    </div>
+
+    <div class="resources-grid">
+
+        <div class="resource-item">
+            <h3>😴 Healthy Sleep</h3>
+            <p>
+                Maintain a consistent sleep schedule and give your body
+                enough time to rest and recover.
+            </p>
+        </div>
+
+        <div class="resource-item">
+            <h3>📖 Study Balance</h3>
+            <p>
+                Break large study sessions into manageable periods and
+                include regular short breaks.
+            </p>
+        </div>
+
+        <div class="resource-item">
+            <h3>🏃 Stay Active</h3>
+            <p>
+                Include regular physical activity and movement in your
+                daily routine.
+            </p>
+        </div>
+
+        <div class="resource-item">
+            <h3>🤝 Social Support</h3>
+            <p>
+                Staying connected with friends, family, teachers, or
+                trusted people can provide useful support.
+            </p>
+        </div>
 
     </div>
+
+</section>
+
+<!-- FOOTER -->
+
+  <div class="footer" id="contact">
+
+    <h3>Contact & Support</h3>
+
+    <p>
+        If you have questions or need support regarding this
+        student wellbeing system, please reach out to your
+        institution or a trusted support person.
+    </p>
+
+    <p>
+        🌿 MindBalance — Student Wellbeing
+    </p>
+
+    <div class="footer-line"></div>
+
+    <div class="footer-bottom">
+        HEALTHY STUDENTS &nbsp; | &nbsp; HAPPIER COMMUNITIES
+    </div>
+
+</div>
 
 
 </main>
@@ -1592,18 +1786,18 @@ async function assessBurnout() {
 
     try {
 
-        const response = await fetch(
-            "http://127.0.0.1:8000/predict",
-            {
-                method: "POST",
+            const response = await fetch(
+                "http://127.0.0.1:8000/predict",
+                {
+                    method: "POST",
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
 
-                body: JSON.stringify(studentData)
-            }
-        );
+                    body: JSON.stringify(studentData)
+                }
+            );
 
 
         if (!response.ok) {
@@ -1613,7 +1807,7 @@ async function assessBurnout() {
 
         const result = await response.json();
 
-        console.log("Prediction Result:", result);
+        
 
 
         // =========================
@@ -1624,6 +1818,21 @@ async function assessBurnout() {
 
         document.getElementById("riskLevel").textContent =
             result.risk_level;
+        const riskElement = document.getElementById("riskLevel");
+
+riskElement.classList.remove(
+    "risk-high",
+    "risk-medium",
+    "risk-low"
+);
+
+if (result.risk_level === "High") {
+    riskElement.classList.add("risk-high");
+} else if (result.risk_level === "Medium") {
+    riskElement.classList.add("risk-medium");
+} else if (result.risk_level === "Low") {
+    riskElement.classList.add("risk-low");
+}
 
         document.getElementById("highProbability").textContent =
             result.probabilities.High + "%";
@@ -1858,6 +2067,20 @@ async function loadMonitoring() {
     retrainingData.retraining_required
         ? `Retraining Required — ${retrainingData.assessment_count} / ${retrainingData.retraining_threshold}`
         : `${retrainingData.assessment_count} / ${retrainingData.retraining_threshold} — Retraining Not Required`;
+
+        const retrainingElement =
+    document.getElementById("retrainingStatus");
+
+retrainingElement.classList.remove(
+    "retraining-required",
+    "retraining-not-required"
+);
+
+if (retrainingData.retraining_required) {
+    retrainingElement.classList.add("retraining-required");
+} else {
+    retrainingElement.classList.add("retraining-not-required");
+}
     } catch (error) {
 
         console.error(
